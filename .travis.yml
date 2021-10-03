@@ -1,0 +1,11 @@
+# super user permission required
+sudo: required
+# we are staring a copy of docker
+services:
+     - docker
+# Before the instalation we required to install
+before_install:
+      - docker build -t testdocker1987/kaka120-React_TypeScript -f Dockerfile.dev . 
+# ruiing the test scrpt with the coverage option
+script:
+      -  docker run testdocker1987/kaka120-React_TypeScript npm run test -- --coverage
